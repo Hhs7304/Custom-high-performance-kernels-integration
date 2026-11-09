@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "triton-rmsnorm-kernel-lab"
+version = "0.1.0"
+description = "Triton fused RMSNorm kernel, reference, and reproducible benchmark harness"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.1", "triton>=2.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+rmsnorm-bench = "rmsnorm_lab.bench:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
